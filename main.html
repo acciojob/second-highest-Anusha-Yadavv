@@ -10,6 +10,14 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			if (arr.length <= 1 || new Set(arr).size === 1) {
+    return -Infinity;
+  }
+
+  return arr
+    .sort((a, b) => b - a) // Sort the array in descending order
+    .reduce((acc, current) => (current < acc.highest ? current : acc), { highest: arr[0], secondHighest: -Infinity })
+    .secondHighest;
 			
 		}
 
